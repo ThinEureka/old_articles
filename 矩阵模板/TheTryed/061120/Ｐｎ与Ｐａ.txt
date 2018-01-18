@@ -1,0 +1,325 @@
+//PolyApprox.h
+//类CPolyApproxT<T>的头文件
+
+#pragma once
+#include "MatrixT.h"
+
+template< class T>
+class CPolynomialT
+{
+private:
+	T * m_pOrigin;
+	int m_nRank;
+public:
+	CPolynomialT():m_pOrigin(NULL)
+	{
+	};
+	CPolynomialT( const CPolynomialT<T> & Pn):m_pOrigin(NULL)
+	{
+		Create(Pn);
+	};
+	~CPolynomialT()
+	{
+		Clear();
+	};
+private:
+	void Clear()
+	{
+		if( m_pOrigin != NULL)
+		{
+			delete[] m_pOrigin;
+			m_pOrigin = NULL;
+		}
+	};
+
+	void Construct()
+	{
+		Clear();
+		m_pOrigin = new T[m_nRank+1];
+	};
+public:
+	void Construct( const int &nRank)
+	{
+		m_nRank = nRank;
+		Construct();
+	};
+	
+public:
+	T &e(int nIndex)
+	{
+		return *(m_pOrigin + nIndex );
+	};
+	const T &e(int nIndex)const
+	{
+
+		return *(m_pOrigin + nIndex );
+	}
+	void Create( const CPolynomialT<T> &Pn)
+	{
+		this->Construct( Pn.m_nRank);
+		for( int i = 0 ;i<m_nRank + 1; i++)
+		{
+			this->e( i) = Pn.e( i);
+		}
+
+	};
+	void Create( T TArray[], const int &nRank);
+	const CPolynomialT<T> & operator = ( const CPolynomialT<T> &Pn)
+	{
+		Create(Pn);
+		return *this;
+	};
+public:
+	void Print(const int &nFlag = 1)const;
+	void PrintUnit(const int &nIndex)const
+	{
+//		T tmp = e(nIndex);
+		if( e(nIndex)<0)
+		{
+			cout<<e(nIndex)<<"(x^"<<nIndex<<')';
+		}
+		else
+		{
+			cout<<"+"<<e(nIndex)<<"(x^"<<nIndex<<')';
+		}
+		
+	}
+	T Caculate( const T &x)const;
+};
+
+template< class T>
+void CPolynomialT<T>::Create( T TArray[], const int &nRank)
+{
+	this->Construct(nRank);
+	for( int i=0 ;i<m_nRank + 1;i++)
+	{
+		e(i) = TArray[i];
+		T tmp = e(i);
+	
+	}
+}
+
+template< class T>
+void CPolynomialT<T>::Print(const int &nFlag)const
+{
+	if( nFlag == 1)
+	{
+		for( int i = 0;i<m_nRank+1; i++)
+		{
+			PrintUnit( m_nRank - i);
+			cout<<" ";
+		}
+	}
+	
+	
+}
+
+template< class T>
+T CPolynomialT<T>::Caculate(const T &x)const
+{
+	T rSum = e(0);
+	T progress= x;
+	for( int i = 0;i<m_nRank; i++)
+	{
+
+		rSum += e(1+i)*progress;
+		progress *= x;
+		
+	}
+	return rSum;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+template< class T>
+class CPolyApproxT
+{
+private:
+	int m_nDimensition;
+	int m_nRank;
+	T * m_pX;
+	T * m_pY;
+	mutable T * m_pProgress;
+	mutable CMatrixT<T> m_NormalMatrix;
+	mutable CMatrixT<T> m_SolutionMatrix;
+	mutable CPolynomialT<T> m_Pn;
+
+public:
+	CPolyApproxT():m_pX(NULL),m_pY(NULL),m_pProgress(NULL),m_nDimensition(0),m_nRank(0)
+	{
+	};
+	CPolyApproxT( T X[],T Y[],T Progress[],int nDimensition, int nRank)
+	{
+		Create( X,Y,Progress,nDimensition,nRank);
+
+	};
+	void Create( T X[],T Y[],T Progress[],int nDimensition, int nRank)
+	{
+		this->m_nDimensition = nDimensition;
+		this->m_nRank = nRank;
+		m_pProgress = Progress;
+		m_pX = X;
+		m_pY = Y;
+
+	};
+private:
+	T & Pe(const int &nIndex)const
+	{
+		return *(m_pProgress + nIndex -1 );
+	};
+	const T & Xe( const int &nIndex)const
+	{
+		return *(m_pX + nIndex - 1);
+	};
+	const T & Ye( const int &nIndex)const
+	{
+		return *(m_pY + nIndex - 1);
+	};
+public:
+	void MoveXToP()const
+	{
+		for( int i = 0; i<m_nDimensition; i++)
+		{
+			Pe( 1 + i) = Xe( 1 + i);
+		}
+	};
+	void MoveYToP()const
+	{
+		for( int i = 0; i<m_nDimensition; i++)
+		{
+			Pe( 1 + i) = Ye( 1 + i );
+		}
+	};
+	void PTimesX()const
+	{
+		for( int i = 0; i<m_nDimensition; i++)
+		{
+			Pe( 1 + i) *= Xe( 1 + i);
+		}
+	};
+	T SumOfP()const
+	{
+		T rT = 0;
+		for( int i =0; i<m_nDimensition; i++)
+		{
+			rT += Pe( 1 + i);
+
+		}
+		return rT;
+	};
+	void AssignA()const;
+	void AssignF()const;
+	bool SolveEq()const
+	{
+		if( m_NormalMatrix.SolveLinearEq(m_SolutionMatrix) )
+		{
+			if( m_SolutionMatrix.GetLine() == 1)
+				return true;
+		}
+		return false;
+	};
+	void Print(const int &nFlag = 1)const
+	{
+		switch(nFlag)
+		{
+		case 1:
+			m_NormalMatrix.Print();   
+			break;
+		case 2:
+			m_Pn.Print();
+		}
+	};
+	bool Caculate()const;
+
+};
+
+
+template< class T>
+void CPolyApproxT<T>::AssignA()const
+{
+	int n = m_nRank + 1;
+	m_NormalMatrix.Construct( n,n+1);
+	CMatrixT<T> & M = m_NormalMatrix;
+	
+	MoveXToP();
+	M.e(1,1) = m_nDimensition;
+
+	for( int i = 0; i< n-1; i++)
+	{
+		M.e( 1,2+i) = SumOfP();
+		PTimesX();
+	}
+
+	for( int i =0; i<n-1; i++)
+	{
+		M.e( 2 + i, n) = SumOfP();
+		if( 2 + i<n)
+		{
+			PTimesX();
+		}
+	}
+	for( int i = 0; i<n-1; i++)
+	{
+		for( int j = 0; j<n-1; j++)
+		{
+			M.e( 2 + i,1+j) = M.e( 1 + i, 2+ j);
+		}
+	}
+
+
+
+
+	
+}
+
+
+template< class T>
+void CPolyApproxT<T>::AssignF()const
+{
+	int n = m_nRank + 1;
+	CMatrixT<T> & M = m_NormalMatrix;
+	
+	MoveYToP();
+	for( int i = 0; i<n; i++)
+	{
+		M.e( 1 + i, n+1) = SumOfP();
+		if( 1 + i < n)
+		{
+			PTimesX();
+		}
+	}
+
+
+
+
+	
+}
+
+template< class T>
+bool CPolyApproxT<T>::Caculate() const
+{
+	AssignA();
+	AssignF();
+	if ( SolveEq() == false )
+	{
+		return false;
+	}
+	int n = m_nRank + 1;
+	m_Pn.Construct(m_nRank);
+	for( int i = 0 ;i<n; i++)
+	{
+		m_Pn.e( i) = m_SolutionMatrix.e( 1+i,1);
+	}
+	return true;
+}

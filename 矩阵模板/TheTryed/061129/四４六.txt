@@ -1,0 +1,123 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+
+void Print(int n=30)
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<'*';
+	}
+	cout<<endl;
+
+}
+
+	typedef CFraction  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+
+void main()
+{		
+
+	CMatrix A,B,C,D,E,X,M;
+	CMatrix Ms[10];
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+	CPolynomial Pn,Pn1,Pn2,Pn3;
+	CPolyApprox Pa,Pa1,Pa2,Pa3;
+	CVector a,b,c,d,e,a1,a2,a3,a4,a5,x,x1;
+	CVector V,V1,V2,Vs[10];
+
+	T t[] =
+	{
+		1,0,0,0,
+		1,1,0,0,
+		0,1,1,0,
+		0,0,1,1,
+
+		1,2,3,4
+	};
+
+	M.Create(t,4,4);
+	MNPV(M);
+	Print();
+
+
+	
+
+
+
+	x.Create(t+16,4);
+	MNPV(x);
+	Print();
+
+	x1 = ~M * x;
+	MNPV(x1);
+	Print(60);
+
+	
+
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+	
+	
+}

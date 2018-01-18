@@ -1,0 +1,113 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+
+void Print(int n=30)
+{
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<'*';
+	}
+	cout<<endl;
+
+}
+
+void main()
+{
+	typedef CFraction  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmd<T> CChangeCmd;
+	typedef CCmdSeries<T> CCmdSeries;
+	T fA[]={
+				1,7,2,8,
+				0,-5,3,6,
+				-1,-7,3,7
+		};
+				
+
+	T fB[]=
+	{
+		-1,1,-1,2,
+		1,0,1,-1,
+		2,4,3,1,
+		-1,1,2,-2,
+		1,1,1,
+		3,4,4,
+		-3,1,0
+	};
+	CMatrix A,B,C,D,E;
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+	int m,n;
+
+
+	
+
+
+
+	D.Create(fA,3,4);
+	D.Print();
+	Print();
+
+	D.ChangeToStairsF(&Cs1);
+	D.StairsToSwords(&Cs1);
+	D.SwordsToCross(&Cs1);
+	D.Print();
+	Print(60);
+	Cs1.PrintCmds();
+	Print();
+
+	D.Create(fA,3,4);
+	D.Print();
+	Print();
+
+	Cs1.MovePointerToHead();
+	n = Cs1.GetCommandNum();
+	for( int i= 0;i<n;i++)
+	{
+		cout<<Cs1.GetCurrentPosition()<<": ";
+		Cs1.GetCurrentCmd().Print();
+		cout<<endl;
+		D.ChangeByCmd(Cs1.GetCurrentCmd());
+		D.Print();
+		Print();
+		Cs1.MovePointerForward();
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+	
+}

@@ -1,0 +1,764 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+
+void Print(int n=30)
+{
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<'*';
+	}
+	cout<<endl;
+
+}
+
+void main()
+{
+	typedef CFraction  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmd<T> CChangeCmd;
+	typedef CCmdSeries<T> CCmdSeries;
+	T fA[]={
+//P68E1
+//4*5
+				1,0,1,-1,-3,
+				1,2,-1,0,-1,
+				4,6,-2,-4,3,
+				2,-2,4,-7,4,
+//20P69E2
+//4*5
+				1,0,1,0,-6,
+				0,2,-2,0,5,
+				0,0,0,1,-3,
+				0,0,0,0,0,
+//40P73E3
+//4*4
+				2,1,-1,1,
+				3,-2,2,-3,
+				5,1,-1,2,
+				2,-1,1,-3,
+//56P73E4
+//4*4
+				1,-2,3,-4,
+				0,1,-1,1,
+				1,3,0,1,
+				0,-7,3,1,
+//72P73E5
+//5*4		
+				1,2,3,-1,
+				3,2,1,-1,
+				2,3,1,1,
+				2,2,2,-1,
+				5,5,2,0,
+//92P73E6
+//4*4
+				1,1,-1,-1,
+				2,1,1,1,
+				4,3,-1,-1,
+				1,2,-4,-4,
+//108P73E7
+//4*4
+				1,-2,3,-4,
+				0,1,-1,1,
+				1,3,0,-3,
+				1,-4,3,-2,
+//124P73E8
+//5*6
+				1,0,-1,0,1,0,
+				0,1,0,-1,0,1,
+				1,-1,0,0,1,-1,
+				0,1,-1,0,0,1,
+				1,0,0,-1,1,0,
+//154P73E9
+//3*4
+				2,3,0,-4,
+				1,2,3,0,
+				0,3,-7,8,
+//166P73E10
+//3*3
+				1,2,8,
+				1,2,-3,
+				2,3,5,
+//175P73E11
+//3*3
+				1,-2,5,
+				2,-3,6,
+				-1,2,-5,
+//184P76E12
+//3*3
+				2,1,-1,
+				1,-1,1,
+				4,5,-5,
+//193P77E13
+//3*3
+				10,-4,-5,
+				4,5,-5,
+				4,5,-5
+//202 E14
+//
+				
+		};
+				
+
+	T fB[]=
+	{
+//P68E1
+//4*3
+		-1,0,-2,
+		0,0,1,
+		2,0,7,
+		0,0,1,
+//12P69E2
+//4*3
+		1,0,-4,
+		3,0,5,
+		-3,0,-2,
+		3,0,0,
+
+//24P73E3
+//4*3
+		3,0,1,
+		-3,0,2,
+		9,0,-1,
+		3,0,4,
+//36P73E4
+//4*3
+		3,0,4,
+		-2,0,-3,
+		4,0,1,
+		2,0,-3,
+//48P73E5
+//5*3
+		4,0,1,
+		8,0,1,
+		3,0,1,
+		2,0,1,
+		CFraction(1/2),0,2,
+//63P73E6
+//4*3
+		-2,0,1,
+		3,0,4,
+		2,0,6,
+		2,0,-1,
+//75P73E7
+//4*3
+		2,0,7,
+		3,0,5,
+		2,0,4,
+		8,0,9,
+//87P73E8
+//5*3
+		2,0,3,
+		4,0,2,
+		3,0,9,
+		0,0,0,
+		0,0,0,
+//102P73E9
+//3*3
+		2,0,3,
+		7,0,5,
+		0,0,0,
+//111P73E10
+//3*3
+		2,0,5,
+		4,0,8,
+		0,0,2,
+		
+//120P73E11
+//3*3
+		2,0,9,
+		8,0,7,
+		3,0,2,
+//129P76E12
+//3*3
+		2,0,1,
+		3,0,2,
+		4,0,-1,
+//138P77E13
+//3*3
+		2,0,5,
+		2,0,-10,
+		3,0,1
+//147P E14
+//
+		
+	};
+	CMatrix A,B,C,D,E;
+	CMatrix Ms[10];
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+	bool bResults[10];
+	char c;
+
+
+
+	int m = 4;
+	int n = 3;
+	int n1 = 5;
+
+
+	cout<<"P68E1:"<<endl;
+	m = 4;
+	n1 = 5;
+	n = 3;
+	A.Create( fA,m,n1);
+	B.Create( fB,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+	
+//*****************************************************************
+	cin>>c;
+cout<<"P69E2"<<endl;
+	
+	m = 4;
+	n1 = 5;
+	n = 3;
+	A.Create( fA+20,m,n1);
+	B.Create( fB+12,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+	cin>>c;
+	cout<<"P73E3:"<<endl;
+	m = 4;
+	n1 = 4;
+	n = 3;
+	A.Create( fA+40,m,n1);
+	B.Create( fB+24,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+	cin>>c;
+	cout<<"P73E4:"<<endl;
+	m = 4;
+	n1 = 4;
+	n = 3;
+	A.Create( fA+56,m,n1);
+	B.Create( fB+36,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+	cin>>c;
+	cout<<"P73E5:"<<endl;
+	m = 5;
+	n1 = 4;
+	n = 3;
+	A.Create( fA+72,m,n1);
+	B.Create( fB+48,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+	cin>>c;
+	cout<<"P73E6:"<<endl;
+	m = 4;
+	n1 = 4;
+	n = 3;
+	A.Create( fA+92,m,n1);
+	B.Create( fB+63,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+	cin>>c;
+	cout<<"P73E7:"<<endl;
+	m = 4;
+	n1 = 4;
+	n = 3;
+	A.Create( fA+108,m,n1);
+	B.Create( fB+75,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+	cin>>c;
+	cout<<"P73E8:"<<endl;
+	m = 5;
+	n1 = 6;
+	n = 3;
+	A.Create( fA+124,m,n1);
+	B.Create( fB+87,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+	cin>>c;
+	cout<<"P73E9:"<<endl;
+	m = 3;
+	n1 = 4;
+	n = 3;
+	A.Create( fA+154,m,n1);
+	B.Create( fB+102,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+	cin>>c;
+	cout<<"P73E10:"<<endl;
+	m = 3;
+	n1 = 3;
+	n = 3;
+	A.Create( fA+166,m,n1);
+	B.Create( fB+111,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+	cin>>c;
+	cout<<"P73E11:"<<endl;
+	m = 3;
+	n1 = 3;
+	n = 3;
+	A.Create( fA+175,m,n1);
+	B.Create( fB+120,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+	cin>>c;
+	cout<<"P76E12:"<<endl;
+	m = 3;
+	n1 = 3;
+	n = 3;
+	A.Create( fA+184,m,n1);
+	B.Create( fB+129,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+	cin>>c;
+	cout<<"P77E13:"<<endl;
+	m = 3;
+	n1 = 3;
+	n = 3;
+	A.Create( fA+193,m,n1);
+	B.Create( fB+138,m,n);
+	D = A | B;
+	cout<<"A"<<endl;
+	A.Print();
+	cout<<endl;
+	cout<<"B"<<endl;
+	B.Print();
+	cout<<endl;
+	cout<<"D"<<endl;
+	D.Print();
+	cout<<endl;
+	Print(60);
+	D.SolveLinearEqs( Ms,bResults,n);
+	cout<<"求解后系数矩阵"<<endl;
+	D.Print();
+	Print(80);
+	for( int i = 0; i<n; i++)
+	{
+		if( bResults[i] )
+		{
+			cout<<"Ms"<<i<<endl;
+			Ms[i].Print();
+			Print();
+			cout<<"A*Ms"<<i<<endl;
+			(A*Ms[i]).Print();
+			Print(60);
+		}
+		else
+		{  
+			cout<<"Ms"<<i<<endl;
+			cout<<"无解"<<endl;
+			Print(60);
+		}
+	}
+	
+//*****************************************************************
+
+
+
+
+	
+	
+}

@@ -1,0 +1,32 @@
+//
+// Xiangqi.RC2 - Microsoft Visual C++ 不会直接编辑的资源
+//
+
+#ifdef APSTUDIO_INVOKED
+#error 此文件不能由 Microsoft Visual C++ 编辑
+#endif //APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 在此处添加手动编辑的资源...
+IDR_DIB_RED_BING                DIB                     "res\\红兵.bmp"
+IDR_DIB_RED_PAO                 DIB                     "res\\红炮.bmp"
+IDR_DIB_RED_MA                  DIB                     "res\\红马.bmp"
+IDR_DIB_RED_JU                  DIB                     "res\\红车.bmp"
+IDR_DIB_RED_XIANG               DIB                     "res\\红象.bmp"
+IDR_DIB_RED_SHI                 DIB                     "res\\红仕.bmp"
+IDR_DIB_RED_SHUAI               DIB                     "res\\红帅.bmp"
+
+IDR_DIB_BLACK_BING              DIB                     "res\\黑卒.bmp"
+IDR_DIB_BLACK_PAO               DIB                     "res\\黑炮.bmp"
+IDR_DIB_BLACK_MA                DIB                     "res\\黑马.bmp"
+IDR_DIB_BLACK_JU                DIB                     "res\\黑车.bmp"
+IDR_DIB_BLACK_XIANG             DIB                     "res\\黑象.bmp"
+IDR_DIB_BLACK_SHI               DIB                     "res\\黑士.bmp"
+IDR_DIB_BLACK_SHUAI             DIB                     "res\\黑将.bmp"
+
+IDR_DIB_BACK                    DIB 			"res\\背面.bmp"
+
+IDR_DIB_QIPAN                   DIB                     "res\\棋盘.bmp"
+
+/////////////////////////////////////////////////////////////////////////////

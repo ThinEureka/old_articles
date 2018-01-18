@@ -1,0 +1,122 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include <math.h>
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+#include "MTApp.h"
+#include "SimpleLpT.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+#define NPV(v) cout<<#v<<" "<<(v)<<endl
+
+void Print(int n=30,char c='*')
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<c;
+	}
+	cout<<endl;
+
+}
+
+
+
+	typedef CFraction T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+	typedef CSimpleLpT<T> CSimpleLp;
+
+
+
+
+
+	void main()
+	{		
+		T t[]=
+		{
+			0,1,1,
+			1,0,-3,
+			1,-3,0,
+
+			1,1,3,
+			1,-1,-1,
+			0,0,1,
+
+			1,T(-1,2),1,
+			1,T(1,2),T(-1,3),
+			0,0,T(1,3),
+
+
+			3,7,2,
+			4,3,8,
+			9,7,5
+			
+
+		};
+
+	CMatrix A,X,B,P,C,D,E,F,G,lA,lB;
+
+	A.Create(t,3,3);
+	MNPV(A);
+	NPV( A.GetDeterminant());
+
+	LooseMatrix( A,B,1);
+    MNPV(B);
+	NPV( B.GetDeterminant());
+
+	LooseMatrix( A,C,2);
+	MNPV( C);
+	NPV( C.GetDeterminant());
+
+	LooseMatrix( A,D,3);
+	MNPV(D);
+	NPV( D.GetDeterminant());
+
+
+	LooseMatrix( A,E,4);
+	MNPV( E);
+	NPV( E.GetDeterminant());
+
+
+
+	
+	
+
+
+
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+}

@@ -1,0 +1,69 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include <math.h>
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+#include "MTAPP.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+#define NPV(v) cout<<#v<<" "<<(v)<<endl
+
+void Print(int n=30,char c='*')
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<c;
+	}
+	cout<<endl;
+
+}
+
+	typedef long double  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+
+void main()
+{		
+	T Xs[5] = { 0,1,-1,2,-2};
+	T Ys[5] = { 0,2,2,20,20};
+	bool Bs[5] = { 0,0,1,0,1};
+//	T Ps[4];
+
+	CMatrix A;
+	CVector Y;
+	Y.Create(Ys,5);
+	MNPV(Y);
+	
+	CreateSM<T>(Xs,Bs,5,5,A);
+	MNPV(A);
+
+	CMatrix M = !A*A;
+	CVector b = !A*Y;
+
+	MNPV(M);
+	MNPV(b);
+
+	CMatrix X;
+	M.SolveLinearEq(&b,X);
+	MNPV(X);
+	
+
+
+
+
+
+
+
+
+	
+
+	
+	
+}

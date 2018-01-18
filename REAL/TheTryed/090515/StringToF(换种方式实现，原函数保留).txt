@@ -1,0 +1,141 @@
+void StringToF(const std::string s,int nBegin,int nEnd,int nExp,int nPrec,REAL &R,char cBase)
+	{
+
+		for( int i = nEnd - 1;i>=nBegin;++i)
+		{
+			if( s.at(i) == '0')
+			{
+				--nEnd;
+			}
+			else
+			{
+				break;
+			}
+		}
+		for( int i = nBegin;i<nEnd;++i)
+		{
+			if( s.at(i) == '0')
+			{
+				++nBegin;
+				--nExp;
+			}
+			else
+			{
+				break;
+			}
+		}
+		if( nExp > 0)
+		{
+			nBegin += nExp;
+			nExp = 0;
+		}
+		if( nBegin >= nEnd)
+		{
+			R.Zero();
+			return;
+		}
+		switch(cBase)
+		{
+		case 'D':case 'd':
+			{
+				static REAL V1,Vk;
+				//用V1作为0.1的近似值
+				// 0 < 0.1 - V1 < e1 = e
+				// 0< VnV1 - V(n+1) < e
+				// 从而 0.1^(n+1) - V(n+1) = 0.1^(n+1) - VnV1 + VnV1 - V(n+1)
+				// < e + 0.1^(n+1)  - (0.1^n-e(n))(0.1 - e1)
+				// = e + 0.1^n*e1 + 0.1e(n) - e1e(n)
+				// < e + 0.1^n*e1 + 0.1e(n)
+				//从而e2 < 1.2e,e3 < 1.13e，用数学归纳法得e(n) < 1.2e
+				//从而总误差 D < (nEnd - nBegin)*9 * 1.2e
+				//要使  D < 2^nPrec，那么 只要 (nEnd - nBegin)*9 * 1.2e < 2^nPrec
+				//那么只要 e < 2^t ，其中 t = nPrec - 4 - [(nEnd-nBegin)的最高非零bit+1]
+				//即 t = nPrec - 4 - (nEnd-nBegin).Lead()
+				// nEnd - nBegin != 0，所以Lead计算正常
+				//再利用算出的精度位t，代入函数TenthExp计算出V1与Vk，k是非零的最高位
+				//在这里就是nExp - 1，当nExp = 0时，就是正常的-1位。
+				int t = nPrec - 4 - REAL(nEnd-nBegin).Lead();
+				REAL::Tenth(V1,t);
+				Vk = V1;
+				for( int i = 0;i<-nExp;++i)
+				{
+					Multiply(REAL::TMP = Vk,V1,Vk).TruncateFeet( REAL::PosToBlock(t-1));
+				}
+				R.Zero();
+
+				for( int i = nBegin;i<nEnd;++i)
+				{
+					Plus(REAL::TMP=R,Multiply(Vk,REAL::DigitToInt(s.at(i)),REAL::MUL),R);
+					Vk = Multiply(Vk,V1,REAL::MUL).TruncateFeet( REAL::PosToBlock(t-1));
+				}
+			}
+			return;
+		case 'b':case 'B':
+			{
+				int nCap = (nEnd-nBegin)/REAL::sc_nUnitBit;
+				if( nEnd-nBegin != nCap*REAL::sc_nUnitBit)
+				{
+					++nCap;
+				}
+				R.ReConstruct(-nCap,0);
+				R.m_nSign  = 1;
+				R.m_nFeet = -nCap;
+				R.m_nHead = 0;
+				int nPhase = REAL::sc_nUnitBit - 1;
+				int nBlock = -1;
+				R.e(nBlock) = 0;
+
+				for( int i= nBegin;i<nEnd;++i)
+				{
+					R.e(nBlock) |= REAL::DigitToInt(s.at(i)) << nPhase;
+					--nPhase;
+					if( nPhase < 0)
+					{
+						nPhase = REAL::sc_nUnitBit - 1;
+						--nBlock;
+						R.e(nBlock) = 0;
+					}
+				}
+			}
+			//已砍头去尾，无需fit
+			//		R.Fit();
+			R <<= nExp;
+			return;
+		case 'h':case 'H':
+			{
+				int nCap = (nEnd-nBegin)/(REAL::sc_nUnitBit/4);
+				if( nEnd - nBegin != nCap * (REAL::sc_nUnitBit/4) )
+				{
+					++nCap;
+				}
+				R.ReConstruct(-nCap,0);
+				R.m_nSign = 1;
+				R.m_nFeet = -nCap;
+				R.m_nHead = 0;
+
+				int nBlock = -1;
+				int nPhase = REAL::sc_nUnitBit - 4;
+				R.e(-1) = 0;
+
+				for( int i = nBegin;i<nEnd;++i)
+				{
+					R.e(nBlock) |= REAL::DigitToInt(s.at(i)) << nPhase;
+					nPhase -= 4;
+					if( nPhase < 0)
+					{
+						nPhase = REAL::sc_nUnitBit - 4;
+						--nBlock;
+						R.e(nBlock) = 0;
+					}
+				}
+			}
+			//已砍头去尾，无需fit
+			//		R.Fit();
+			R <<= 4*nExp;
+			return;
+		default:
+			R.Zero();
+			return;
+		}
+
+	}

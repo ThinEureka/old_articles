@@ -1,0 +1,96 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+
+void Print()
+{
+	cout<<endl<<"*****************************"<<endl;
+}
+
+void main()
+{
+	typedef CFraction  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmd<T> CChangeCmd;
+	typedef CCmdSeries<T> CCmdSeries;
+	T fA[]={
+				2,-3,1,-5,
+				1,-2,-1,-2,
+				4,-2,7,-7,
+				1,-1,2,-3
+		};
+	T fB[]=
+	{
+		-1,1,-1,2,
+		1,0,1,-1,
+		2,4,3,1,
+		-1,1,2,-2,
+		1,1,1,
+		3,4,4,
+		-3,1,0
+	};
+	CMatrix A,B,C,D,E;
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+
+	Cs1.Clear();
+	Cs1.Initial();
+
+	A.Create( fA,4,4);
+	cmd.Create1('R',1,2);
+	A.ChangeByCmd(cmd);
+	A.Print();
+	Print();
+	A.BasicLineSimplify( &Cs1,1,1);
+
+		Cs1.PrintCmds();
+		Print(); 
+
+	A.Print();
+	Print();
+
+
+	Cs1.Clear();
+	Cs1.Initial();
+	A.BasicLineSimplify( &Cs1,2,2);
+
+	Cs1.PrintCmds();
+	Print();
+
+	A.Print();
+	Print();
+
+	Cs1.Clear();
+	Cs1.Initial();
+	A.BasicLineSimplify( &Cs1,4,4);
+
+	Cs1.PrintCmds();
+	Print();
+
+	A.Print();
+	Print();
+
+	A.Create( fA,1,1);
+
+	Cs1.Clear();
+	Cs1.Initial();
+	A.BasicLineSimplify( &Cs1,1,1);
+
+	Cs1.PrintCmds();
+	Print();
+
+	A.Print();
+	Print();
+
+
+
+
+	
+
+
+
+	
+	
+}

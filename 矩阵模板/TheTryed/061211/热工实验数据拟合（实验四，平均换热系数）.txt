@@ -1,0 +1,119 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include <math.h>
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+#define NPV(v) cout<<#v<<" "<<(v)<<endl
+
+void Print(int n=30,char c='*')
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<c;
+	}
+	cout<<endl;
+
+}
+
+	typedef long double  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+
+void main()
+{		
+
+
+	CPolyApprox Pa;
+
+	T lnNu[12] = {3.52014, 3.46034, 2.95676, 2.09085,
+		          3.41436, 3.31772, 2.93018, 2.18914, 
+				  3.02546, 2.99255, 2.74747, 2.52237 
+	             };
+
+	T lnRe[12] = {8.77263, 8.72753, 8.04279, 6.80338,
+		          8.59514, 8.42479, 7.88349, 6.60088, 
+				  8.07905, 8.0368, 7.68709, 7.34572
+	             };
+  
+
+
+	T p[12];
+
+	Pa.Create(lnRe,lnNu,p,12,1);
+	Pa.Caculate();
+
+	Pa.Print(2);
+	Print();
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+  
+
+
+	
+
+
+
+
+
+	
+
+	
+	
+}

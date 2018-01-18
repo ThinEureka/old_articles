@@ -1,0 +1,32 @@
+REAL类，实现无限精度有理数运算，可控精度，作为库来使用。
+内部实现为二进制，具体应该是二进制表示的
+2^REAL::sc_nUnitBit进制，原先是打算写无限长整数类INT的，但是
+中途发现更有必要实现REAL，并在写完REAL之后发现目前没有太大需要
+写INT，但也将之前写的INT代码包括在内。
+在调试REAL过程中，计算到了2000的阶乘，算e精确到10的负1000次方，
+算是一种综合的调试。
+
+测试记录：
+1、由于使用memcpy函数的原因，取消REAL::p与REAL::cp函数中的assert
+函数。
+2、修正AbsCompare中的笔误：++i => --i。
+3、计算整数除法的局部代码的纠正。注：后实现更改不再计算整数除法。
+4、修正Plus函数中memset函数中的参数：添加sizeof(REAL::typeUnit)，此
+错误曾导致Reverse函数中1 - CR的计算结果增加（设置0值错误的缘故），以
+致无法收敛。
+5、修正>>=函数中的笔误：--i => ++i。
+6、由于用1/10乘来求输出REAL的十进制表示效率很低，从而更换一种算法：
+用std::string来存储BCD码通过乘上REAL各bit的方法来求得各位的十进制数，
+效率有明显提高。
+7、修正Reverse中的笔误：One << nK => C << nK。
+8、改进Reverse中初值的选择：R<<= nK + 1 => R<<=-C.Lead()。
+9、修正RoundDigit、FixDigit、FloatDigit中参数类型的笔误：
+const std::string s => std::string &s
+10、修正StringToF中求nDepth的代码。
+11、修正StringToF中计算10的次幂部分：更正一个off-by-one-erro。
+12、修正StringToF中第一个循环笔误：++i => --i。
+13、修正StringToI中第二个循环笔误：++i => --i。
+14、修正IToString中十六进制部分的截断代码，添加条件if( s.size() > nSpace)。
+15、修正IToString中十六进制部分，mask后结果的处理：mask后再移位。
+16、修正IToString中十六进制部分，最高位前0个数的可能性判断错误。刊误： 3 => 
+REAL::sc_nUnitBit/4 - 1

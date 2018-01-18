@@ -1,0 +1,46 @@
+//Main.cpp
+//主程序所在文件
+#include "MapT.h"
+#include "BoxMazeT.h"
+
+const int R = 6;
+const int L = 8;
+const int N = 3;
+
+typedef CMapT<R,L,N> CMap;
+typedef CBoxMazeT<R,L,N> CMaze;
+CMaze Maze;
+CMap Map;
+
+
+void main()
+{
+	using namespace std;
+	int Xs[R*L] =
+	{
+		
+		1,1,1,1,1,1,1,1,
+		1,9,0,0,1,1,1,1,
+		1,9,0,0,0,0,9,1,
+		1,9,0,1,0,1,9,1,
+		1,9,0,0,0,0,9,1,
+		1,1,1,1,1,1,1,1
+	};
+	CPoint ptBoxs[N]	=
+	{
+		CPoint(3,3),CPoint(5,4),CPoint(6,5)
+	};
+	CPoint ptAims[N] =
+	{
+		CPoint(3,2),CPoint(4,2),CPoint(5,5)
+	};
+	CPoint ptStart = CPoint(3,5);
+	Maze.Create(Xs,ptBoxs,ptStart,ptAims);
+	if( Maze.Try() )
+	{
+		Maze.Analyze();
+		Maze.Print(cout,2);
+	}
+	
+
+}

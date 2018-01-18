@@ -1,0 +1,101 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include <math.h>
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+#include "MTApp.h"
+#include "SimpleLpT.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+#define NPV(v) cout<<#v<<" "<<(v)<<endl
+
+void Print(int n=30,char c='*')
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<c;
+	}
+	cout<<endl;
+
+}
+
+
+
+	typedef CFraction T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+	typedef CSimpleLpT<T> CSimpleLp;
+
+
+
+
+
+	void main()
+	{		
+		T t[]=
+		{
+			7,6,5,4,3,2,
+			9,7,8,9,4,3,
+			7,4,9,7,0,0,
+			5,3,6,1,0,0,
+			0,0,5,6,0,0,
+			0,0,6,8,0,0
+
+		};
+
+	CMatrix A,X,B,P,C,D,E,F,lA,lB;
+
+	A.Create(t,6,6);
+	MNPV(A);
+
+	ExpandMatrix(A,B);
+	MNPV(B);
+
+	NPV(A.GetDeterminant());
+	NPV(B.GetDeterminant());
+
+
+	E.Construct(10,10);
+	E.TurnToE();
+	
+	MNPV(E);
+	ExpandMatrix(E,F);
+	MNPV(F);
+	NPV(E.GetDeterminant());
+	NPV(F.GetDeterminant());
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+}

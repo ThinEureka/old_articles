@@ -1,0 +1,174 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include <math.h>
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+#include "MTApp.h"
+#include "SimpleLpT.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+#define NPV(v) cout<<#v<<" "<<(v)<<endl
+
+void Print(int n=30,char c='*')
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<c;
+	}
+	cout<<endl;
+
+}
+
+
+
+	typedef CFraction T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+	typedef CSimpleLpT<T> CSimpleLp;
+
+
+
+
+
+	void main()
+	{		
+		T t[]=
+		{
+			1,2,3,4,5,
+			2,3,4,5,1,
+			3,4,5,1,2,
+			4,5,1,2,3,
+			5,1,2,3,4,
+
+			1,2,3,
+			2,3,1,
+			3,1,2,
+
+			1,2,3,4,5,6,
+			2,3,4,5,6,1,
+			3,4,5,6,1,2,
+			4,5,6,1,2,3,
+			5,6,1,2,3,4,
+			6,1,2,3,4,5,
+
+
+			1,2,3,4,5,6,7,
+			2,3,4,5,6,7,1,
+			3,4,5,6,7,1,2,
+			4,5,6,7,1,2,3,
+			5,6,7,1,2,3,4,
+			6,7,1,2,3,4,5,
+			7,1,2,3,4,5,6,
+
+			1,2,3,4,5,6,7,8,
+			2,3,4,5,6,7,8,1,
+			3,4,5,6,7,8,1,2,
+			4,5,6,7,8,1,2,3,
+			5,6,7,8,1,2,3,4,
+			6,7,8,1,2,3,4,5,
+			7,8,1,2,3,4,5,6,
+			8,1,2,3,4,5,6,7,
+
+			1,2,3,4,5,6,7,8,9,
+			2,3,4,5,6,7,8,9,1,
+			3,4,5,6,7,8,9,1,2,
+			4,5,6,7,8,9,1,2,3,
+			5,6,7,8,9,1,2,3,4,
+			6,7,8,9,1,2,3,4,5,
+			7,8,9,1,2,3,4,5,6,
+			8,9,1,2,3,4,5,6,7,
+			9,1,2,3,4,5,6,7,8,
+
+
+			1,2,3,4,5,6,7,8,9,10,
+			2,3,4,5,6,7,8,9,10,1,
+			3,4,5,6,7,8,9,10,1,2,
+			4,5,6,7,8,9,10,1,2,3,
+			5,6,7,8,9,10,1,2,3,4,
+			6,7,8,9,10,1,2,3,4,5,
+			7,8,9,10,1,2,3,4,5,6,
+			8,9,10,1,2,3,4,5,6,7,
+			9,10,1,2,3,4,5,6,7,8,
+			10,1,2,3,4,5,6,7,8,9
+
+
+			
+
+		};
+
+	CMatrix A,X,B,P,C,D,E,F,G,lA,lB;
+
+
+	B.Create(t+25,3,3);
+	MNPV(B);
+	NPV(B.GetDeterminant());
+
+	A.Create(t,5,5);
+	MNPV(A);
+	NPV(A.GetDeterminant());
+
+
+	
+
+
+	C.Create(t+34,6,6);
+	MNPV(C);
+	NPV(C.GetDeterminant());
+
+
+	D.Create(t+70,7,7);
+	MNPV(D);
+	NPV(D.GetDeterminant());
+
+
+	E.Create(t+119,8,8);
+	MNPV(E);
+	NPV(E.GetDeterminant());
+
+
+	F.Create(t+183,9,9);
+	MNPV(F);
+	NPV(F.GetDeterminant());
+
+
+	G.Create(t+264,10,10);
+	MNPV(G);
+	NPV(G.GetDeterminant());
+
+
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+}

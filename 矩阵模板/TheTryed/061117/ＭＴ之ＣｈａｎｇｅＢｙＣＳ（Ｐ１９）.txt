@@ -1,0 +1,108 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+
+void Print()
+{
+	cout<<endl<<"*****************************"<<endl;
+}
+
+void main()
+{
+	typedef long double T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmd<T> CChangeCmd;
+	typedef CCmdSeries<T> CCmdSeries;
+	T fA[]={
+			1,-9,13,7,
+			-2,5,-1,3,
+			3,-1,5,-5,
+			2,8,-7,-10
+		};
+	T fB[]=
+	{
+		-1,1,-1,2,
+		1,0,1,-1,
+		2,4,3,1,
+		-1,1,2,-2,
+		1,1,1,
+		3,4,4,
+		-3,1,0
+	};
+	CMatrix A,B,C,D,E;
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+
+
+	Cs1.Clear();
+	Cs1.Initial();
+
+	cmd.Create3('R',2,2,1);
+	Cs1.AddNewCmd(cmd);
+
+    cmd.Create3('R',3,-3,1);
+	Cs1.AddNewCmd(cmd);
+
+    cmd.Create3('R',4,-2,1);
+	Cs1.AddNewCmd(cmd);
+
+    cmd.Create3('R',3,-1,4);
+	Cs1.AddNewCmd(cmd);
+
+    cmd.Create3('R',4,2,2);
+	Cs1.AddNewCmd(cmd);
+
+    cmd.Create3('R',4,17,3);
+	Cs1.AddNewCmd(cmd);
+
+	Cs1.PrintCmds();
+
+	D.Create(fA,4,4);
+	D.Print();
+	Print();
+	Cs1.MovePointerToPosition(2);
+	D.ChangeByCS( Cs1,1,3);
+	D.Print();
+	Print();
+
+	D.ChangeByCS(Cs1,4,5);
+	D.Print();
+	Print();
+
+	D.ChangeByCS(Cs1,6,6);
+	D.Print();
+	Print();
+
+	Cs1.GetCurrentCmd().Print();
+
+	
+
+   
+
+	
+
+
+
+	
+
+
+
+
+
+
+  
+
+	
+
+
+
+	
+
+
+
+
+	
+	
+}

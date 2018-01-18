@@ -1,0 +1,78 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+
+void Print(int n=30)
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<'*';
+	}
+	cout<<endl;
+
+}
+
+void main()
+{
+	typedef double  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+
+	T X[]=
+	{
+		36.9, 46.7, 63.7, 77.8, 84.0, 87.5
+	};
+	T Y[]=
+	{
+		181, 197, 235, 270, 283, 292
+	};
+	T Pr[6];
+			
+
+	CMatrix A,B,C,D,E;
+	CMatrix Ms[10];
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+	CPolynomial Pn,Pn1,Pn2,Pn3;
+	CPolyApprox Pa,Pa1,Pa2,Pa3;
+
+	Pa.Create( X,Y,Pr,6,1);
+	Pa.Caculate();
+	Pa.Print();
+	Print();
+	Pa.Print(2);
+	Print();
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+}

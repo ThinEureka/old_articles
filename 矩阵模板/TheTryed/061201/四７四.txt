@@ -1,0 +1,177 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+
+void Print(int n=30,char c='*')
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<c;
+	}
+	cout<<endl;
+
+}
+
+	typedef CFraction  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+
+void main()
+{		
+
+	CMatrix A,B,C,D,E,X,A1,A2,B1,B2;
+	CMatrix Ms[10];
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+	CPolynomial Pn,Pn1,Pn2,Pn3;
+	CPolyApprox Pa,Pa1,Pa2,Pa3;
+	CVector a,b,c,d,e,f,a1,a2,a3,a4,a5,x1,b1,b2,b3,b4;
+	CVector V,V1,V2,Vs[10];
+
+	T t[] =
+	{
+		1,1,1,1,
+
+		1,-1,-1,-1,
+		1,1,1,-1,
+
+		0,1,0,1
+	};
+
+	CMatrix M(t,1,4);
+	M.Print();
+	Print();
+
+	A.Create(t+4,2,4);
+	MNPV(A);
+	Print();
+
+	if(M.SolveLinearEq(NULL,X));
+	{
+		MNPV(X);
+		Print();
+	}
+
+	if(A.SolveLinearEq(NULL,C))
+	{
+		MNPV(C);
+		Print(60);
+	}
+
+
+	a1.Create(X,2);
+	MNPV(a1);
+
+	a2.Create(X,3);
+	MNPV(a2);
+
+	a3.Create(X,4);
+	MNPV(a3);
+
+
+	Print();
+	b1.Create(C,2);
+	MNPV(b1);
+
+
+	b2.Create(C,3);
+	MNPV(b2);
+
+	Print(80);
+	A = (CMatrix) a1 | (CMatrix) a2 | (CMatrix) a3 | (CMatrix) b1 | (CMatrix) b2;
+	MNPV(A);
+	Print();
+
+
+	A.Simplify(A1,-1,-1);
+	MNPV(A1);
+	Print(80);
+
+
+	b3.Create(t+12,4);
+	MNPV(b3);
+	Print();
+
+	A = (CMatrix) a1 | (CMatrix) a2 | (CMatrix) a3 | (CMatrix) b3;
+	MNPV(A);
+	Print();
+
+
+	A.Simplify(A1);
+	MNPV(A1);
+	Print();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+	
+	
+}

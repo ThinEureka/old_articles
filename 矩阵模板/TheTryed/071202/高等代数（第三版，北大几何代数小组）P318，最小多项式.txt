@@ -1,0 +1,89 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include <math.h>
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+#include "MTApp.h"
+#include "SimpleLpT.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+#define NPV(v) cout<<#v<<" "<<(v)<<endl
+
+void Print(int n=30,char c='*')
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<c;
+	}
+	cout<<endl;
+
+}
+
+	typedef CFraction T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+	typedef CSimpleLpT<T> CSimpleLp;
+
+	void main()
+	{		
+		T t[]=
+		{
+			1,1,0,0,
+			0,1,0,0,
+			0,0,1,0,
+			0,0,0,2,
+
+
+			1,1,0,0,
+			0,1,0,0,
+			0,0,2,0,
+			0,0,0,2
+		};
+
+	CMatrix A,X,B;
+	CVector F;
+
+
+	A.Create(t,4,4);
+	CMatrix E('E',4);
+	B.Create(t+16,4,4);
+	MNPV(A);
+	MNPV(B);
+	CMatrix C,D;
+	C = (A-E)*(A-E)*(A-2*E);
+	MNPV(C);
+	D = (B-E)*(B-E)*(B-2*E);
+	MNPV(D);
+	MNPV(A-E);
+	MNPV((A-E)*(A-E));
+	MNPV((A-E)*(A-E)*(A-E));
+	MNPV((A-2*E));
+	MNPV(B-E);
+	MNPV((B-E)*(B-E));
+	MNPV((B-E)*(B-E)*(B-E));
+	MNPV((B-2*E));
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+}

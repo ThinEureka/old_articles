@@ -1,0 +1,195 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include <math.h>
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+
+#define MNPV(x) cout<<#x":"<<endl;\
+				(x).Print();
+#define NPV(v) cout<<#v<<" "<<(v)<<endl
+
+void Print(int n=30,char c='*')
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<c;
+	}
+	cout<<endl;
+
+}
+
+	typedef long double  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+	typedef CVectorT<T> CVector;
+
+void main()
+{		
+
+	CMatrix A,B,C,D,E,F,G,H,X,A1,A2,B1,B2,M;
+	CMatrix Ms[10];
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+	CPolynomial Pn,Pn1,Pn2,Pn3;
+	CPolyApprox Pa,Pa1,Pa2,Pa3;
+	CVector a,b,c,d,e,f,g,h,a1,a2,a3,a4,a5,x1,b1,b2,b3,b4,b5,b6,b7,c1,c2,c3,c4,x;
+	CVector V,V1,V2,Vs[10];
+
+	T t[] =
+	{
+		0,1,1,-1,
+		1,0,-1,1,
+		1,-1,0,1,
+		-1,1,1,0,
+
+		1/sqrtl(2),-1/sqrtl(2),1/sqrtl(2),1.0/2,
+		0,0,1/sqrtl(2),-1/2.0,
+		1/sqrtl(2),0,0,-1/2.0,
+		0,1/sqrtl(2),0,1/2.0
+
+
+		
+	};
+
+	A.Create(t,4,4);
+	MNPV(A);
+
+
+	T lamda=1;
+
+	((const T &)lamda*CMatrix('E',4)-A).SolveLinearEq(NULL,X);
+	MNPV(X);
+	a1.Create(X,2);
+	a2.Create(X,3);
+	a3.Create(X,4);
+
+
+	lamda = -3;
+	((const T &)lamda*CMatrix('E',4)-A).SolveLinearEq(NULL,X);
+	MNPV(X);
+	a4.Create(X,2);
+
+
+	Print();
+	MNPV(a1);
+	MNPV(a2);
+	MNPV(a3);
+	MNPV(a4);
+
+	b1 = a1;
+	b2 = a2 - (a2*b1)/(b1*b1)*b1;
+	b3 = a3 - (a3*b1)/(b1*b1)*b1 - (a3*b2)/(b2*b2)*b2;
+	MNPV(b1);
+	MNPV(b2);
+	MNPV(b3);
+
+	c1 = b1/b1.Length();
+	c2 = b2/b2.Length();
+	c3 = b3/b3.Length();
+	c4 = a4/a4.Length();
+
+	C = (CMatrix)c1|(CMatrix)c2|(CMatrix)c3|(CMatrix)c4;
+	MNPV(C);
+
+	MNPV(!C*C);
+
+	MNPV(!C*A*C);
+
+
+
+	
+
+	
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+  
+
+
+	
+
+
+
+
+
+	
+
+	
+	
+}

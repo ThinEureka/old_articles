@@ -1,0 +1,296 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+#include "PolyApproxT.h"
+
+void Print(int n=30)
+{ 
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<'*';
+	}
+	cout<<endl;
+
+}
+
+void main()
+{
+	typedef CFraction  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmdT<T> CChangeCmd;
+	typedef CCmdSeriesT<T> CCmdSeries;
+	typedef CPolynomialT<T> CPolynomial;
+	typedef CPolyApproxT<T> CPolyApprox;
+
+	T Ts[] ={
+//P82 2*3
+				5,2,-1,
+				3,0,2,
+				
+//6P82 2*3
+				-1,4,0,
+				2,8,1,
+//12P84 3*3
+				1,-1,0,
+				2,1,-1,
+				-1,0,1,
+//21P84 3*2
+				0,1,
+				-1,2,
+				1,0,
+//27P85 2*2
+				1,-1,
+				-1,1,
+//31P85 2*2
+				1,1,
+				-1,-1,
+//35P85 2*2
+				2,0,
+				0,-2,
+//39P88 2*2
+				-1,0,
+				4,3,
+//43P91 2*3
+				1,-1,5,
+				6,7,8,
+//49P94 1*4
+				1,2,3,4,
+//53P94 1*4
+				1,CFraction(1,2),CFraction(1,3),CFraction(1,4),
+//57P94 2*3
+				1,-1,2,
+				3,0,2,
+//63P94 2*3
+				4,3,0,
+				2,-1,1,
+//69P94 2*3
+				-1,2,-1,
+				0,-5,1,
+//75P95 3*4
+				3,-6,2,0,
+				1,5,-1,8,
+				4,3,1,7,
+//87P95 3*4
+				5,4,-4,2,
+				-7,1,9,4,
+				6,-1,3,9,
+//99P95 3*1
+				1,2,3,
+//102P95 1*3
+				1,-2,1,
+//105P95 3*3
+				-1,0,0,
+				1,-1,0,
+				0,1,-1,
+//114P95 3*3
+				1,1,0,
+				0,1,1,
+				0,0,1,
+//123P95 3*3
+				1,4,2,
+				0,-3,-2,
+				0,4,3,
+//132P95 4*4
+				1,-1,-1,-1,
+				-1,1,-1,-1,
+				-1,-1,1,-1,
+				-1,-1,-1,1,
+//148P95 2*2
+				CFraction(1,2),CFraction(1,-2),
+				CFraction(1,-2), CFraction(1,2), 
+//152P96 3*3
+				1,-2,3,
+				2,-4,1,
+				3,-5,2
+//161
+		
+			};
+	T Ts1[]=
+			{1,3
+			
+
+			};
+	T Pr[6];
+			
+
+	CMatrix A,B,C,D,E;
+	CMatrix Ms[10];
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+	CPolynomial Pn,Pn1,Pn2,Pn3;
+	CPolyApprox Pa,Pa1,Pa2,Pa3;
+	int m,n;
+
+	A.Create(Ts,2,3);
+	B.Create(Ts+6,2,3);
+	A.Print();
+	Print();
+	B.Print();
+	Print();
+	(3*A - 2*B).Print();
+	Print(60);
+	
+
+	A.Create(Ts+12,3,3);
+	B.Create(Ts+21,3,2);
+	A.Print();
+	Print();
+	B.Print();
+	Print();
+	(A*B).Print();
+	Print(60);
+
+
+	A.Create(Ts+27,2,2);
+	B.Create(Ts+31,2,2);
+	C.Create(Ts+35,2,2);
+	A.Print();
+	Print();
+	B.Print();
+	Print();
+	C.Print();
+	Print(45);
+	(A*B).Print();
+	Print();
+	(A*C).Print();
+	Print();
+	(B*A).Print();
+	Print(60);
+
+
+	A.Create(Ts+39,2,2);
+	A.Print();
+	Print();
+	(A*A - 2*A -3*CMatrix('E',2)).Print();
+	Print(60);
+
+	A.Create(Ts+43,2,3);
+	A.Print();
+	Print();
+	(!A).Print();
+	Print(60);
+
+	A.Create(Ts+49,1,4);
+	B.Create(Ts+53,1,4);
+	A.Print();
+	Print();
+	B.Print();
+	Print();
+	((!A)*B).Print();
+	Print(60);
+
+
+	A.Create(Ts+57,2,3);
+	B.Create(Ts+63,2,3);
+	C.Create(Ts+69,2,3);
+	A.Print();
+	Print();
+	B.Print();
+	Print();
+	C.Print();
+	Print(45);
+	(A - 2*B + 3*C).Print();
+	Print();
+	(3*A-2*B).Print();
+	Print();
+	(A*(!B)).Print();
+	Print();
+	((!B)*C).Print();
+	Print(60);
+
+
+	A.Create(Ts+75,3,4);
+	B.Create(Ts+87,3,4);
+	A.Print();
+	Print();
+	B.Print();
+	Print();
+	(CFraction(1,2)*(B-A)).Print();
+	Print(60);
+
+
+	A.Create(Ts+99,3,1);
+	B.Create(Ts+102,1,3);
+	C.Create(Ts+105,3,3);
+	A.Print();
+	Print();
+	B.Print();
+	Print();
+	C.Print();
+	Print(45);
+	(A*B).Print();
+	Print();
+	(B*A).Print();
+	Print();
+	(C*A).Print();
+	Print();
+	(B*C*A).Print();
+	Print(60);
+
+
+	A.Create(Ts+114,3,3);
+	B.Create(Ts+123,3,3);
+	A.Print();
+	Print();
+	B.Print();
+	Print(45);
+	(A*A).Print();
+	Print();
+	(B*B).Print();
+	Print(60);
+
+
+	A.Create(Ts+132,4,4);
+	A.Print();
+	Print();
+	(A*A).Print();
+	Print(60);
+
+	A.Create(Ts+148,2,2);
+	A.Print();
+	Print();
+	(A*A).Print();
+	Print(60);
+
+
+	A.Create(Ts+152,3,3);
+	A.Print();
+	Print();
+	(3*A*A - 2*A +5* CMatrix('E',3)).Print();
+	Print(60);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+}

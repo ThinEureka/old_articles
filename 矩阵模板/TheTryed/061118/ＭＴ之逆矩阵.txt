@@ -1,0 +1,187 @@
+//Domain.cpp
+//模板类试验的主函数
+
+#include"MatrixT.h"
+
+void Print(int n=30)
+{
+	cout<<endl;
+	for( int i=0;i<n;i++)
+	{
+		cout<<'*';
+	}
+	cout<<endl;
+
+}
+
+void main()
+{
+	typedef CFraction  T;
+	typedef CMatrixT<T> CMatrix;
+	typedef CChangeCmd<T> CChangeCmd;
+	typedef CCmdSeries<T> CCmdSeries;
+	T fA[]={
+//P100
+				2,0,0,
+				0,-1,0,
+				0,0,2,
+//9P101
+				3,5,
+				-2,-4,
+//13P112
+				2,1,0,0,
+				1,1,0,0,
+				0,0,2,7,
+				0,0,1,3,
+//29P112
+				2,1,0,0,
+				1,1,0,0,
+				-1,2,2,7,
+				1,-1,1,3,
+//45P112
+				0,0,0,1,2,
+				0,0,0,2,3,
+				1,1,0,0,0,
+				0,1,1,0,0,
+				0,0,1,0,0,
+//70P116
+				1,2,-1,
+				3,1,0,
+				-1,-1,-2,
+//79P120	
+				2,2,3,
+				1,-1,0,
+				-1,2,1,
+//88P120
+				1,1,1,1,
+				1,1,-1,-1,
+				1,-1,1,-1,
+				1,-1,-1,1,
+//104P121	
+				2,1,0,0,0,
+				0,2,1,0,0,
+				0,0,2,1,0,
+				0,0,0,2,1,
+				0,0,0,0,2
+//129
+		};
+				
+
+	T fB[]=
+	{
+		-1,1,-1,2,
+		1,0,1,-1,
+		2,4,3,1,
+		-1,1,2,-2,
+		1,1,1,
+		3,4,4,
+		-3,1,0
+	};
+	CMatrix A,B,C,D,E;
+	CChangeCmd cmd,cmd1,cmd2;
+	CChangeCmd cmds[43];
+	CCmdSeries Cs1,Cs2;
+	int m,n;
+
+
+	
+
+
+
+	D.Create(fA,3,3);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+		D.Create(fA+9,2,2);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+
+		D.Create(fA+13,4,4);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+
+
+		D.Create(fA+29,4,4);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+
+		D.Create(fA+45,5,5);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+
+		D.Create(fA+70,3,3);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+		D.Create(fA+79,3,3);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+
+		D.Create(fA+88,4,4);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+
+		D.Create(fA+104,5,5);
+	D.Print();
+	Print();
+	(~D).Print();
+	Print(60);
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+	
+}
