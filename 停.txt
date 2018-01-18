@@ -1,0 +1,453 @@
+261
+140,1942
+153,269
+小处难以随便（注册表）:msconfig程序下的列表：HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupfolder
+道：经计算发现，放立在地平面上竖直杆上的点在地平面上投影（太阳照射下）在一天内的轨迹为双曲线的一支（最常见的情形），在赤道上还可能为一线直线（春分、秋分时），在发生极昼时为一个椭圆（未计算验证），特殊的，在极点处总是一个圆。这些圆锥曲线的都以经线为轴线。求解的关键在于地平面法线绕地轴的旋转，在地平面上看来等价于太阳入射光线绕地轴的旋转。此时在地平面上看，太阳入射光线集中在一个锥面内（春分、秋分时为一个平面），这样将锥面上点通过杆上的点作地平面上的投影即可得到轨迹。08/12/26;10:33
+小处难以随便（百科）：飞行棋可能的原型Parcheesi。老外的石子游戏，Jacks。
+道：行列式拉普拉斯定理清晰的不依赖于复杂分析过程的证明。突破点在于使用之前发现的连线表示法，并采用顺序对称的连接法，此时逆序关系异常简单。08/11/12;19:05
+道：刚才发现随机变量实际上可以构成一个欧氏空间里的向量，但是要做一下抽象，即把相差为常数的随机变量看作是同一个向量，从而两个随机变量的协方差就是向量的内积。而随机变量的标准方差就是向量的模的长度，相关系数是两个向量夹角的余弦值。而为常数的一类随机变量则是此欧氏空间的零向量。这些性质都是容易验证的。今天发现这一点我感到很高兴，但是是否会有所作用暂时还不清楚。08/09/29;22:15
+小处难以随便（AutoCAD)：网络上的建议，在布局空间里标注，我也以为恰当。不过这样将图与标注分开，还是有点不爽。
+小处难以随便（English):potable water 饮用水
+小处难以随便（Programming Windows）：添加其他项目的路径：项目属性->通用属性->添加新引用。
+小处难以随便（Programming Windows）：只读的编辑控件默认背景是灰色的。
+小处难以随便（命令行）：导入注册表：reg import FileName
+小处难以随便（命令行）：删除注册表项：reg delete KeyName [{/v EntryName|/ve|/va}] [/f]，例：reg delete "hkcu\software\microsoft\winmine" /va
+小处难以随便（注册表）：禁用任务管理器：[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System]，“DisableTaskMgr”
+小处难以随便（注册表）：映像劫持：[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\360Safe.exe]　"Debugger"="C:\\WINDOWS\\pchealth\\helpctr\\binaries\\msconfig.exe"
+晚安：#$%@$%8^&***
+小处难以随便（命令行）:cd[文件夹名]，打开文件夹；cd..，上一级菜单；dir/a显示所有文件；del[文件名]删除文件；copy [pathA] [pathB]复制A到B；md[文件夹名],新建文件夹；ren[名A] [名B]，名A重命名为B；move [名A] [pathB]移动A到B下；cls清除屏幕内容
+小处难以随便（记事本）：记事本最多允许显示1024列，超过则自动换行。
+小处难以随便（Excel）：绝对引用$,例：E4 = D4*$D$2
+道：刚才证明了推盘拼图游戏（姑且这样称呼）有一半的情况是不可解的，恰对应于逆序数为奇数的情况。证明的关键在于空白的移动可看作代替放在空白初始位置的图片与其他图片的交换，因为最后空白要回到原位置或者那张放置在空白初始位置的图片要改变位置都需要与空白交换一次，从这张图片到空白的初始位置到其从空白初始位置移出，其相当的结果就是这张图片与其他图片交换位置的效果。而这一过程总的交换次数是偶数（这点是容易看出来与证明的），而空白与这张图片交换的次数是两次，于是总的结果就相当于这张图片与其他图片交换了偶数次，这样并不会改变其逆序数的奇偶性（随便给这些位置赋个序号即可），而与标准的拼图布局逆序数奇偶性不同的布局就不可能通过这样的过程推出来。实际上，对于所有可解的情况，发现了一种解法。这些发现归功于昨天写的程序which用windows界面模拟了这一游戏。08/04/16;16:39
+疑（形而上学）：为什么近似是可靠的？08/03/31；20:50
+小处难以随便（C++）：据说临时变量定义在小的范围内更利于编译器优化，网上搜到的。不过，我以为其会重复定义都是反着做的。
+小处难以随便（Word）：格式－>边框和底纹,文件->页面设置->分栏
+道：一个正整数的n（n>1）次方根，若不是整数则必定是一无理数。07/12/05；12:12
+道：任意使半正定的二次型（其描述矩阵为A）为零的解X，必定满足AX=0，故其实际上是一个线性方程组。07/11/30;20:35
+道：一个具有最小正周期的函数（定义在R上），其所有的周期都是最小正周期的倍数。
+道：任意一个有度空间的有界集，都可通过添加新点的办法（添加元素，定义距离，验证三点不等式）改造成紧集。07/10/02;20:15
+小处难以随便：C++，在函数重载时，只有在参数的类型与模板完全一样时才产生函数模板的实例。编译器首先判断是否有完全符合条件的实体函数，若没有则查找符合条件的函数模板的实例，若再没有则寻找通过typeconversion可以有效的实体函数。
+道：关于有理函数（真）可转换为若干个部分分式之和。今天早上想到，在有了实系数多项式的因式分解的型式之后，这个问题实际上就是若干个多项式的线性无关问题。这些多项式是分母除以各个基本部分分式所得到的。观察这些多项式的公因式，很容易得到这些多项式线性无关的结果。证明的关键在于：在上面所得到的多项式的一个等于0的线性组合中，这些多项式与某个根（x1，重数为r1）无关的部分明显含有公因式(x-x1)^r1，从而得到与x1有关的部分亦有这一公因式，然而后者次数不够高，故后者为0，进一步分析可知后者的各项系数为0。对于那些与两个共轭复根相关的多项式亦是如此，略有区别。从而得到这些多项式线性无关，并且其项数为n，最高次为n-1，那么一切次数小于n的多项式都可为这些多项式线性表示，此即命题。07/09/19;11:59
+道：关于物体在液体中所受浮力的大小。在压强公式p=ρ*g*h的基础上，用高斯公式，可以求出外形较好的物体的浮力大小，大小为其排开液体的重量，对于那些形状不是规则的物体，我们有足够的信心相信其浮力也是如此。刚才忽尔想到，若这一物体被代之以相同形状的液体团which是这一物体所浸入的那一种，那么由于形状一样，这一团液体与原来的物体所受的浮力是一样的（浮力仅仅是水的压强作用在物体的表面产生压力的合力，液体团与原物体在对应的地方形状一样，压强也一样，故总的作用力是一样的）。显然，上面所说的液体团在同样的液体中是静止的，即这一液体团所受的浮力大小等于其自身的重力。从而，原物体的浮力等于这一部分重力，也即其排开液体的重力。呵呵，也许当年阿基米德就是这样发现这一公式的。07/09/14;12:06
+小处难以随便：C++《thinking in C++》typedef basic_istream<char> istream;typedef basic_istream<wchar_t> wistream;typedef basic_ifstream<char> ifstream;typedef basic_ifstream<wchar_t> wifstream;typedef basic_istringstream<char> istringstream;typedef basic_istringstream<wchar_t> wistringstream;
+小处难以随便：C++《thinking in C++》typedef basic_string<char> string;
+template<class charT, class traits = char_traits<charT>,class allocator = allocator<charT> > class basic_string;
+小处难以随便：MathType，公式列的对齐。In fact, you will probably want to align these two equations so that their ≤ signs are directly above one another. To do this, we choose the Align at = command from the Format menu. It will work even though we have ≤ signs rather than = signs.@P44ofMathType User Maual。
+小处难以随便：MathType，模板的替换，通过Ctrl。You can create2iXΣby insertingiXΣand replacing the subscript template with a sub/superscript template. To do this, select the subscript slot as shown below, and hold down the CTRL key as you insert the template. The CTRL key causes the new template to replace the selected one instead of wrapping around it.
+道：1、证明了欧氏空间刚性变换可表为正交变换与平移变换之和；2、证明了反射变换不可能通过连续运动实现；3、证明了刚体运动可表为V=W×r＋d（其中，V,W,r,d为矢量），反之亦真。
+E:Good grasp of computer applications, in particular: MS Word, MS Excel, MS Access and Power Point. ?Preferably Chinese national or Chinese expat with recent work experience in China ?Strong communication and negotiation skills. 
+道：若p与q是不可公度的两个正实数（比值是无理数），则选定适当的整数m，n可使m×p＋n×q接近任何实数。
+小处难以随便C++:向函数传递常数组void StepMultiply( const T Xs[], T Ps[],const int &nRank);在上面这一函数中，Xs中的内容不能改变。
+不知就里
+Ｃ＋＋标准２７１。inline int function();
+284
+类型转移函数，声明前加operator
+整个相当于一个函数名；例operator int();
+则operator int 相当于是一个函数，在完成类定义时定义如下。
+classname::operator int
+并且对于两个类之间的转移函数之间的关系也是一样的：
+应在类前面加operator;
+常量成员函数
+311	
+326->当类中不含有默认构造函数，则不能实例化该类的对象数组。
+340－>全局的new 与delete运算符调用操作系统来分配和释放内存，效率较低。
+351->初始化参数表（关于引用的成员变量），当一个对象被声明为常量则其无法调用非常量型的成员函数。
+371
+174－>当一个指针被声明为指向const型变量时，就意味着程序将无法通过指针来改变变量的值。
+151指针
+（对象定义时不调用自重载的赋值函数）
+ （二维数组与二重指针在作为函数参数时的区别
+   二维数组无法作为形参是二重指针的函数的实参，
+   但指针数组则可）
+391当基类没有默认构造函数时，派生类的构造函数必须为基类的构造函数提供初始化参数表。
+392当基类和派生类的成员函数具有相同的名字、参数类型和const说明时，那么在调用派生类对象的该成员时实际上是调用了在派生类中重定义的函数。
+在类的继承的几个问题：
+1关于类型的自动转换
+2基类成员函数的调用
+3虚函数的调用（纯虚函数不能有实例）
+其本质在于虚函数与非虚函数调用机制的不同，
+在类的指针调用函数时，当所调用的函数是一虚函数时，其通过指针所指向的对象上所附有的虚函数表的指针来指向
+532->向现有的文件追加内容 std::ofstream tfile( "test.dat",std::ios::app);
+543->小写转大写 char j = 'a'; toupper(j);
+《实12》
+17-21-22
+有序集
+28
+我们给出了一个方法，按照这个方法我们可以给出一系列的可列的元素，然后我们据此给出一个集合，我们说
+一个元素凡是可以按照此方法得到，那么这个元素属于这个集合，否则则否。
+虽然从逻辑上说一个元素必定是以下情况中的两种
+1可以按上述方法给出，
+2不可以按上述方法给出。
+有一个问题在于，判断其属于哪一种情况却是有难度的，在限定的条件下，在以一定操作为限制的情况下，这
+一点是无法进行判断的。
+30称良序集的序相为序数，由良序集的性质可知，序数可比较大小。有限序数，超限序数，超限数
+31首元素32序数体系->超限归纳法->序数之势->势集合组成良序集->势的大小－>势的边续性
+->势的无穷性－>选取公理与势的比较->集的概念与分割公理
+42－48整数系统的构造（6公理与四则运算法则）55有理数的构造
+/*12十进制小数的全体是不可列的，一旦其可列便可构造出一个不属于列出数列的小数来。又涉及到无限操作的问题，一个构造涉及到无限可列的操作时我们是否可以说这一构造是成立的*/
+……康妥的无理数理论……
+57基本数列即对一实数－>四则运算，定义与同一性59－>实数的稠密性（定理7）－>实数的基本数列－>
+实数的有序性－>四则运算－>实数的表示法－>循环小数与理数－>冖与指数－>对数
+……特穗金特的无理数理论……
+71分割，分割不一定对应一个有理数－>四则运算－>两一生中实数理论的统一。82
+……点集……
+83有度空间：1有距离的集2一点与自身的距离是零3三点不等式
+88致密性定理（数学归纳法＋划分）90致密点集，嵌套定理91两无公共点的闭集倘若其中一集是致密的，那么此两集间距离必大于零。－>外限点集与内限点集－>闭集是内限点集，开集是外限点集－>93开集的充要条件－>导集的定义－>点集的一次导集是闭集－>94包－>任一集的包是一闭集，并且包是包含该集的最小的闭集－>核的定义－>核是包含于一个集内最大的开集95境界96孤立点集与已密点集以加完全集97集B在M中是稠密的，与集B在A中是处处稠密的98联络点集，若点集B不能分成对B闭的两个非空集合，那么称B是一联络点集，联络点集一定是个已密集，反之不一定成立
+覆盖定理，可析空间的覆盖定理，直线上的闭集与完全疏朗点集，平面上的点集（闭集的距离与闭集的性质）
+
+……实函数的连续性……
+113
+VC图像编程
+5
+初始化视口：重载OnInitialUpdate是最好的方法;
+OnNewDocument与OnOpenDocument
+一个可作标识可可方便清除的工具
+一个利用鼠标来给定信息的输入法。
+
+AutoCAD2004  
+p42 
+保存在样板文件中的设置：
+图形界限
+直线和角度单位类型和精度
+标题栏、边界及标识
+图层名称及设置
+草图设置
+尺寸标注样式
+文字样式
+线型
+视力名称
+UCS名称
+图纸尺寸
+页面布局
+
+
+基本的设置与视图的概念，并图层
+草图设置，栅格与捕捉的方法（小：极轴追踪）
+选择的方法：圈与交（矩形与多边形），采用术语：窗围，窗交，圈围，圈交，栏选。
+栅格可以是任意角度的，并且在两个方向上的间距可以是不一样的。
+一次捕捉 Shift+右键
+
+一、常见用法：
+
+F1　　　　　　　　　　　显示当前程序或者windows的帮助内容。
+F2　　　　　　　　　　　当你选中一个文件的话，这意味着“重命名”
+F3　　　　　　　　　　　当你在桌面上的时候是打开“查找：所有文件” 对话框
+F10或ALT　　　　　　　　激活当前程序的菜单栏
+windows键或CTRL+ESC　　 打开开始菜单
+CTRL+ALT+DELETE　　　　 在win9x中打开关闭程序对话框
+DELETE　　　　　　　　　删除被选择的选择项目，如果是文件，将被放入回收站
+SHIFT+DELETE　　　　　　删除被选择的选择项目，如果是文件，将被直接删除而不是放入回收站
+CTRL+N　　　　　　　　　新建一个新的文件
+CTRL+O　　　　　　　　　打开“打开文件”对话框
+CTRL+P　　　　　　　　　打开“打印”对话框
+CTRL+S　　　　　　　　　保存当前操作的文件
+CTRL+X　　　　　　　　　剪切被选择的项目到剪贴板
+CTRL+INSERT 或 CTRL+C　 复制被选择的项目到剪贴板
+SHIFT+INSERT 或 CTRL+V　粘贴剪贴板中的内容到当前位置
+ALT+BACKSPACE 或 CTRL+Z 撤销上一步的操作
+ALT+SHIFT+BACKSPACE　　 重做上一步被撤销的操作
+　
+Windows键+M　　　　　　 最小化所有被打开的窗口。
+Windows键+CTRL+M　　　　重新将恢复上一项操作前窗口的大小和位置
+Windows键+E　　　　　　 打开资源管理器
+Windows键+F　　　　　　 打开“查找：所有文件”对话框
+Windows键+R　　　　　　 打开“运行”对话框
+Windows键+BREAK　　　　 打开“系统属性”对话框
+Windows键+CTRL+F　　　　打开“查找：计算机”对话框
+SHIFT+F10或鼠标右击　　 打开当前活动项目的快捷菜单
+SHIFT　　　　　　　　　 在放入CD的时候按下不放，可以跳过自动播放CD。在打开word的时候按下不放，可以跳过自启动的宏
+　
+ALT+F4　　　　　　　　　关闭当前应用程序
+ALT+SPACEBAR　　　　　　打开程序最左上角的菜单
+ALT+TAB　　　　　　　　 切换当前程序
+ALT+ESC　　　　　　　　 切换当前程序
+ALT+ENTER　　　　　　　 将windows下运行的MSDOS窗口在窗口和全屏幕状态间切换
+PRINT SCREEN　　　　　　将当前屏幕以图象方式拷贝到剪贴板
+ALT+PRINT SCREEN　　　　将当前活动程序窗口以图象方式拷贝到剪贴板
+CTRL+F4　　　　　　　　 关闭当前应用程序中的当前文本（如word中）
+CTRL+F6　　　　　　　　 切换到当前应用程序中的下一个文本（加shift 可以跳到前一个窗口） 
+
+在IE中：
+
+ALT+RIGHT ARROW　　　　 显示前一页（前进键）
+ALT+LEFT ARROW　　　　　显示后一页（后退键）
+CTRL+TAB　　　　　　　　在页面上的各框架中切换（加shift反向）
+F5　　　　　　　　　　　刷新
+CTRL+F5　　　　　　　　 强行刷新
+
+　
+　　目的快捷键
+
+　　激活程序中的菜单栏 F10
+
+　　执行菜单上相应的命令 ALT+菜单上带下划线的字母
+
+　　关闭多文档界面程序中的当
+
+　　前窗口 CTRL+ F4
+
+　　关闭当前窗口或退出程序 ALT+ F4
+
+　　复制 CTRL+ C
+
+　　剪切 CTRL+ X
+
+　　删除 DELETE
+
+　　显示所选对话框项目的帮助 F1
+
+　　显示当前窗口的系统菜单 ALT+空格键
+
+　　显示所选项目的快捷菜单 SHIFT+ F10
+
+　　显示“开始”菜单 CTRL+ ESC
+
+　　显示多文档界面程序的系统
+
+　　菜单 ALT+连字号(-)
+
+　　粘贴 CTR L+ V
+
+　　切换到上次使用的窗口或者
+
+　　按住 ALT然后重复按TAB，
+
+　　切换到另一个窗口 ALT+ TAB
+
+　　撤消 CTRL+ Z
+
+二、使用“Windows资源管理器”的快捷键
+
+　　目的快捷键
+
+　　如果当前选择展开了,要折
+
+　　叠或者选择父文件夹左箭头
+
+　　折叠所选的文件夹 NUM LOCK+负号(-)
+
+　　如果当前选择折叠了，要展开
+
+　　或者选择第一个子文件夹右箭头
+
+　　展开当前选择下的所有文件夹 NUM LOCK+*
+
+　　展开所选的文件夹 NUM LOCK+加号(+)
+
+　　在左右窗格间切换 F6
+
+三、使用 WINDOWS键
+
+　　可以使用 Microsoft自然键盘或含有 Windows徽标键的其他任何兼容键盘的以下快捷键。
+
+　　目的快捷键
+
+　　在任务栏上的按钮间循环 WINDOWS+ TAB
+
+　　显示“查找：所有文件” WINDOWS+ F
+
+　　显示“查找：计算机” CTRL+ WINDOWS+ F
+
+　　显示“帮助” WINDOWS+ F1
+
+　　显示“运行”命令 WINDOWS+ R
+
+　　显示“开始”菜单 WINDOWS
+
+　　显示“系统属性”对话框 WINDOWS+ BREAK
+
+　　显示“Windows资源管理器” WINDOWS+ E
+
+　　最小化或还原所有窗口 WINDOWS+ D
+
+　　撤消最小化所有窗口 SHIFT+ WINDOWS+ M
+
+四、使用“我的电脑”和“Windows资源管理器”的快捷键
+
+　　目的快捷键
+
+　　关闭所选文件夹及其所有父
+
+　　文件夹按住 SHIFT键再单击“关闭按钮（仅适用于“我的电脑”）
+
+　　向后移动到上一个视图 ALT+左箭头
+
+　　向前移动到上一个视图 ALT+右箭头
+
+　　查看上一级文件夹 BACKSPACE
+
+五、使用对话框中的快捷键
+
+　　目的快捷键
+
+　　取消当前任务 ESC
+
+　　如果当前控件是个按钮，要
+
+　　单击该按钮或者如果当前控
+
+　　件是个复选框，要选择或清
+
+　　除该复选框或者如果当前控
+
+　　件是个选项按钮，要单击该
+
+　　选项空格键
+
+　　单击相应的命令 ALT+带下划线的字母
+
+　　单击所选按钮 ENTER
+
+　　在选项上向后移动 SHIFT+ TAB
+
+　　在选项卡上向后移动 CTRL+ SHIFT+ TAB
+
+　　在选项上向前移动 TAB
+
+　　在选项卡上向前移动 CTRL+ TAB
+
+　　如果在“另存为”或“打开”
+
+　　对话框中选择了某文件夹，
+
+　　要打开上一级文件夹 BACKSPACE
+
+　　在“另存为”或“打开”对
+
+　　话框中打开“保存到”或
+
+　　“查阅” F4
+
+　　刷新“另存为”或“打开”
+
+　　对话框 F5
+
+六、使用“桌面”、“我的电脑”和“Windows资源管理器”快捷键
+
+　　选择项目时，可以使用以下快捷键。
+
+　　目的快捷键
+
+　　插入光盘时不用“自动播放”
+
+　　功能按住 SHIFT插入 CD-ROM
+
+　　复制文件按住 CTRL拖动文件
+
+　　创建快捷方式按住 CTRL+SHIFT拖动文件
+
+　　立即删除某项目而不将其放入 SHIFT+DELETE
+
+　　“回收站”
+
+　　显示“查找：所有文件” F3
+
+　　显示项目的快捷菜单 APPLICATION键
+
+　　刷新窗口的内容 F5
+
+　　重命名项目 F2
+
+　　选择所有项目 CTRL+ A
+
+　　查看项目的属性 ALT+ ENTER或 ALT+双击
+
+　　可将 APPLICATION键用于 Microsoft自然键盘或含有 APPLICATION键的其他兼容键
+
+七、Microsoft放大程序的快捷键
+
+　　这里运用Windows徽标键和其他键的组合。
+
+　　快捷键目的
+
+　　Windows徽标+PRINT SCREEN将屏幕复制到剪贴板（包括鼠标光标）
+
+　　Windows徽标+SCROLL LOCK将屏幕复制到剪贴板（不包括鼠标光标）
+
+　　Windows徽标+ PAGE UP切换反色。
+
+　　Windows徽标+ PAGE DOWN切换跟随鼠标光标
+
+　　Windows徽标+向上箭头增加放大率
+
+　　Windows徽标+向下箭头减小放大率
+
+　
+八、使用辅助选项快捷键
+
+　　目的快捷键
+
+　　切换筛选键开关右SHIFT八秒
+
+　　切换高对比度开关左ALT+左SHIFT+PRINT SCREEN
+
+　　切换鼠标键开关左ALT+左SHIFT+NUM LOCK
+
+　　切换粘滞键开关 SHIFT键五次
+
+　　切换切换键开关 NUM LOCK五秒 
+
+道：  平面成像的原理 
+
+CAD:倒角多段线可使不同的多段线并成一个图形对象。
+    图形界限的确定在坐标系中指定了特定的区域，但是可以通过打开与关闭刻命令下的一开关来决定是否可是图限之外绘图（不论在何种情况下，绘图能利用图限外的空间来确定图形的位置与大小）。
+   使用用户坐标系
+   栅格可以是任意角度的，并且在两个方向上的间距可以是不一样的。
+   一次捕捉 Shift+右键
+   视口乃是使用一定配置观察与编辑对象的单元，其中可使用特定的视图。
+   小处难以随便：from  ltscale  celtscale
+   每个布局都代表一张单独的打印输出图纸。
+   系统的安装
+Programming Windows:However, the memory device context is the only type of device context into which you can select a bitmap. 
+ＡＰＩ：
+Menu AppendMenu  GetSystemMenu  CreateMenu () LoadMenu (hInstance, TEXT ("MenuFile"))  LoadMenu (hInstance, TEXT ("MenuEdit"))     SetMenu (hwnd, hMenu)   CheckMenuItem (hMenu, iCurrentFont, MF_CHECKED)  GetMenuItemInfo   SetMenuItemBitmaps  
+ AppendMenu (hMenu, MF_BITMAP | MF_POPUP, (int) hMenuPopup,
+                        (PTSTR) (LONG) hBitmap) ;
+GetSystemMenu (hwnd, FALSE);
+DC CreateCompatibleDC (hdc)  GetDCEx (hwnd, NULL, DCX_CACHE | DCX_LOCKWINDOWUPDATE) ;
+Bitmap CreateBitmap (size.cx, size.cy, 1, 1, NULL) PlgBlt
+Message 
+WM_MENUCHAR Windows sends a WM_MENUCHAR message to your window procedure when you press Alt with a character key that does not correspond to a menu item. 
+Brush GetStockObject (LTGRAY_BRUSH)
+Instance  case WM_CREATE:
+          hInstance = ((LPCREATESTRUCT) lParam)->hInstance ;
+hwnd  GetDesktopWindow ()
+
+术：在绘图软件中通过鼠标的自由运动来确定执行什么操行，例如用鼠标在
+窗口上绘制某个图形的轨迹使软件通过该轨迹判断操作者的意图，并调用相应的操作绘制欲绘制之图形。
+AutoCAD:在布局的最大化视口状态下保存图形并关闭，则下一次打开文件时将显示言中之布局。
+利用移动视口的方法进行布局视图的定位。
+mvsetup s可控制视口中模型的实际打印比例。
+标注引线位置可移。
+空闲任务：三维实体视图分析，编程类（目的，作用，计划，方法，收获）。
+道：对于n维m道循环欧氏空间，三点不等式成立（证明方法，对称点）
+Windows programming The BeginPaint call validates the entire client area and returns a "handle to a device context." 
+
+However, if your program invalidates a rectangle of the client area by calling InvalidateRect, the last argument of the function specifies whether you want the background erased. If this argument is FALSE (that is, 0), Windows will not erase the background and the fErase field of the PAINTSTRUCT structure will be TRUE (nonzero) after you call BeginPaint.
+ 
+The rcPaint rectangle in PAINTSTRUCT is not only the invalid rectangle; it is also a "clipping" rectangle. This means that Windows restricts painting to within the clipping rectangle. More precisely, if the invalid region is not rectangular, Windows restricts painting to within that region. 
+
+
+Matlab command list: rref(A); inv(A); eig(A);mu = mean(D), sigma = std(D);help stats
++ If you want more control over the output format, use the sprintf and fprintf functions.
++Typing a few characters and then the  key finds a previous line that begins with those characters. 
++ See the text String property for more information on using TEX syntax to produce mathematical symbols.
++x = linspace(-pi,pi,25); % 25 points between - and 
++figure(n)
++If you have set any figure properties in the previous plot, you might want to use the clf command with the reset option, 
+clf reset
+before creating your new plot to restore the figure's properties to their defaults.
++plottools
+Math term: echelon  eigenvalues deviations
++Since the matrix is singular, it does not have an inverse.
+
+Thinking in C++ 小处难以随便The width is also distinctly different because it’s reset to zero by each inserter or extractor that could be influenced by its value. It’s really not a state variable, but rather an implicit argument to the inserters and extractors. If you want a constant width, call width( ) after each insertion or extraction.
++对于ＩＯ流：1、在自动方式下，当所给数精度大于流交互精度时，截断；否则状态为showpoint时补零，反之仅输出传入的位数。2、在固定与科学示数方式下，当所给数精度大于流交互精度时，截断，否则补零至交互精度。
++const ulong ULMAX = numeric_limits<ulong>::max();
++Thinking in C++ When making a nested friend class, you must go through the process of first declaring the name of the class, then declaring it as a friend, then defining the class. Otherwise, the compiler will get confused.
+static: Destructors for static objects (that is, all objects with static storage, not just local static objects as in the example above) are called when main( ) exits or when the Standard C library function exit( ) is explicitly called.
++ Names that are commonly placed in header files, such as const definitions and inline functions, default to internal linkage. 
++ namespace If You  inject a friend declaration into a namespace by declaring it within an enclosed class,the fuction will then be a member of the namespace
+小处难以随便C++读入一个字符，而不改变文件指针的位置peek()
+
+
