@@ -1,0 +1,122 @@
+//domain.cpp
+//主程序所在文件
+#include "Map.h"
+#include <iostream>
+using namespace std;
+int * ppnRs[11];
+
+void PrintArray( const int nArray[],int nDimension)
+{
+	for(int i=0;i<nDimension;++i)
+	{
+		cout<<nArray[i]<<'\t';
+	}
+	cout<<endl;
+}
+
+int CountReverse( const int nArray[],int nDimension)
+{
+	int nR = 0;
+	for( int i=0;i<nDimension-1;++i)
+	{
+		for( int j = i+1;j<nDimension;++j)
+		{
+			if( nArray[i] >nArray[j])
+				++nR;
+		}
+	}
+	return nR;
+}
+
+
+void FillReverse(int * &pnR,int nDimension)
+{
+	static CMap Map;
+	Map.Create(nDimension);
+	Map.Allocate();
+	int *nXs = new int[nDimension];
+	int m = nDimension*(nDimension-1)/2 + 1;
+    pnR = new int[m];
+
+	for( int i=0;i<m;++i)
+	{
+		pnR[i] = 0;
+	}
+	while( Map.GetValue(nXs))
+	{
+		++( pnR[ CountReverse(nXs,nDimension)]);
+	}
+	delete[] nXs;
+	
+}
+
+void FillReverseArray()
+{
+	for( int i=0;i<11;++i)
+	{
+		FillReverse( ppnRs[i],1+i);
+	}
+}
+
+int e( int nRow,int nLine)
+{
+	if( nLine <= nRow*(nRow-1)/2 )
+	{
+		return ppnRs[nRow-1][nLine];
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+void Print()
+{
+	for( int i=0;i<11;++i)
+	{
+		int nRow = 1+i;
+		int nLine = nRow*(nRow-1)/2;
+		PrintArray(ppnRs[i],nLine+1);
+	}
+}
+
+bool Check()
+{
+	Print();
+	for( int i=0;i<10;++i)
+	{
+		int nRow = 2+i;
+		for( int j=0; j<nRow-1;++j)
+		{
+			if( e(nRow,1+j) != e(nRow,j) + e(nRow-1,1+j) )
+				return false;
+		}
+		int nLine = nRow*(nRow-1)/2;
+		for( int j=0; j<nLine - nRow + 1;++j)
+		{
+			if( e(nRow,nRow+j) != e(nRow,nRow+j-1) + e(nRow-1,nRow+j) - e(nRow-1,j) )
+				return false;
+		}
+	}
+	return true;
+}
+
+void Clear()
+{
+	for( int i=0;i<11;++i)
+	{
+		delete[] ppnRs[i];
+	}
+}
+
+
+
+
+
+void main()
+{
+
+	FillReverseArray();
+	cout<<"结果是"<<Check()<<endl;
+	Clear();
+}
